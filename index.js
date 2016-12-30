@@ -8,7 +8,7 @@ const inject = require('error-inject')
  *
  * @param  {Function} fn The function to call when an error occurs. Function has to have signature
  *                       with signature <code>(err, ctx)</code>
- * @return {Function} the middleware function )
+ * @return {Function} the middleware function
  * @example
  * const onError = require('mali-onerror')
  *

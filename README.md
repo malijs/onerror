@@ -14,7 +14,7 @@ The called function does not have access to control flow.
 Mali on error middleware. Calls function with error and context. The called function does not
 have access to control flow.
 
-**Returns**: <code>function</code> - the middleware function )  
+**Returns**: <code>function</code> - the middleware function  
 
 | Param | Type | Description |
 | --- | --- | --- |
