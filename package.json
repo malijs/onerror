@@ -44,5 +44,13 @@
   },
   "standard": {
     "parser": "babel-eslint"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.js"
+    ]
   }
 }
