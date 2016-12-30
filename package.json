@@ -1,6 +1,6 @@
 {
   "name": "mali-onerror",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "On error middleware for Mali",
   "main": "index.js",
   "repository": {
