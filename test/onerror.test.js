@@ -214,6 +214,72 @@ test.cb('should call middleware function on error in req stream app', t => {
   })
 })
 
+test.cb('should call middleware function on error in stream in req stream app', t => {
+  t.plan(7)
+  const APP_HOST = getHost()
+  const PROTO_PATH = path.resolve(__dirname, './protos/reqstream.proto')
+
+  async function writeStuff (ctx) {
+    return new Promise((resolve, reject) => {
+      const data = []
+      let counter = 0
+      ctx.req.on('data', function (d) {
+        counter++
+        if (counter === 3) {
+          ctx.req.emit('error', new Error('boom'))
+        } else {
+          data.push(d.message.toUpperCase())
+        }
+      })
+
+      ctx.req.on('end', function () {
+        ctx.res = { message: data.join(':') }
+        resolve()
+      })
+    })
+  }
+
+  let mwCalled = false
+  function mwFn (err, ctx) {
+    t.truthy(err)
+    t.truthy(ctx)
+    mwCalled = true
+  }
+
+  const app = new Mali(PROTO_PATH, 'ArgService')
+  app.use('writeStuff',
+    function (ctx, next) {
+      ctx.call.removeAllListeners('error')
+      return next()
+    },
+    mw(mwFn),
+    writeStuff
+  )
+  app.start(APP_HOST)
+
+  const proto = grpc.load(PROTO_PATH).argservice
+  const client = new proto.ArgService(APP_HOST, grpc.credentials.createInsecure())
+  const call = client.writeStuff((err, res) => {
+    t.ifError(err)
+    t.truthy(res)
+    t.truthy(res.message)
+    t.is(res.message, '1 FOO:2 BAR:4 QWE:5 RTY:6 ZXC')
+    t.true(mwCalled)
+    app.close().then(() => t.end())
+  })
+
+  call.on('error', err => {
+    console.log('client error', err)
+  })
+
+  async.eachSeries(getArrayData(), (d, asfn) => {
+    call.write(d)
+    _.delay(asfn, _.random(10, 50))
+  }, () => {
+    call.end()
+  })
+})
+
 test.cb('should call middleware function on error in duplex call', t => {
   t.plan(6)
   const APP_HOST = getHost()

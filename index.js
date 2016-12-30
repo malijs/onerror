@@ -24,6 +24,9 @@ module.exports = function (fn) {
       inject(ctx.call, err => fn(err, ctx))
       return next()
     } else {
+      if (ctx.type === CallType.REQUEST_STREAM) {
+        inject(ctx.call, err => fn(err, ctx))
+      }
       return next().catch(err => {
         fn(err, ctx)
         return Promise.reject(err)
