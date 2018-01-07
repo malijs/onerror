@@ -25,20 +25,20 @@
   ],
   "scripts": {
     "test": "ava -v",
-    "docs": "jsdoc2md index.js --heading-depth 3 --template readme.hbs | md-wrap-code > README.md"
+    "docs": "jsdoc2md index.js --heading-depth 3 --template readme.hbs > README.md"
   },
   "dependencies": {
     "error-inject": "^1.0.0",
     "mali-call-types": "^0.1.0"
   },
   "devDependencies": {
-    "async": "^2.1.4",
-    "ava": "^0.23.0",
+    "async": "^2.6.0",
+    "ava": "^0.24.0",
+    "grpc": "^1.8.0",
     "highland": "^3.0.0-beta.3",
-    "jsdoc-to-markdown": "^3.0.0",
+    "jsdoc-to-markdown": "^3.0.3",
     "lodash": "^4.17.3",
-    "mali": "git://github.com/malijs/mali.git#context_refactor",
-    "md-wrap-code": "^0.1.1",
+    "mali": "~0.6.0",
     "standard": "^10.0.0"
   },
   "directories": {

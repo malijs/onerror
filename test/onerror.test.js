@@ -52,6 +52,7 @@ test.cb('should not be called when no error in req/res app', t => {
   }
 
   let mwCalled = false
+
   function mwFn () {
     mwCalled = true
   }
@@ -82,6 +83,7 @@ test.cb('should call middleware function on error in req/res app', t => {
   }
 
   let mwCalled = false
+
   function mwFn (err, ctx) {
     t.truthy(err)
     t.truthy(ctx)
@@ -117,6 +119,7 @@ test.cb('should call middleware function on error in res stream app', t => {
   }
 
   let mwCalled = false
+
   function mwFn (err, ctx) {
     t.truthy(err)
     t.truthy(ctx)
@@ -140,14 +143,22 @@ test.cb('should call middleware function on error in res stream app', t => {
   let errMsg2
   call.on('error', err => {
     errMsg2 = err ? err.message : ''
+    if (!endCalled) {
+      endCalled = true
+      _.delay(() => {
+        endTest()
+      }, 200)
+    }
   })
 
   let endCalled = false
   call.on('end', () => {
-    endCalled = true
-    _.delay(() => {
-      endTest()
-    }, 200)
+    if (!endCalled) {
+      endCalled = true
+      _.delay(() => {
+        endTest()
+      }, 200)
+    }
   })
 
   function endTest () {
@@ -184,6 +195,7 @@ test.cb('should call middleware function on error in req stream app', t => {
   }
 
   let mwCalled = false
+
   function mwFn (err, ctx) {
     t.truthy(err)
     t.truthy(ctx)
@@ -240,6 +252,7 @@ test.cb('should call middleware function on error in stream in req stream app', 
   }
 
   let mwCalled = false
+
   function mwFn (err, ctx) {
     t.truthy(err)
     t.truthy(ctx)
@@ -308,6 +321,7 @@ test.cb('should call middleware function on error in duplex call', t => {
   }
 
   let mwCalled = false
+
   function mwFn (err, ctx) {
     t.truthy(err)
     t.truthy(ctx)
@@ -331,12 +345,22 @@ test.cb('should call middleware function on error in duplex call', t => {
   let errMsg2 = ''
   call.on('error', err2 => {
     errMsg2 = err2 ? err2.message : ''
+    if (!endCalled) {
+      endCalled = true
+      _.delay(() => {
+        endTest()
+      }, 200)
+    }
   })
 
+  let endCalled = false
   call.on('end', () => {
-    _.delay(() => {
-      endTest()
-    }, 200)
+    if (!endCalled) {
+      endCalled = true
+      _.delay(() => {
+        endTest()
+      }, 200)
+    }
   })
 
   async.eachSeries(getArrayData(), (d, asfn) => {
