@@ -22,7 +22,7 @@ const ARRAY_DATA = [
   { message: '3 asd' },
   { message: '4 qwe' },
   { message: '5 rty' },
-  { message: '6 zxc' }
+  { message: '6 xyz' }
 ]
 
 function getArrayData () {
@@ -276,7 +276,7 @@ test.cb('should call middleware function on error in stream in req stream app', 
     t.ifError(err)
     t.truthy(res)
     t.truthy(res.message)
-    t.is(res.message, '1 FOO:2 BAR:4 QWE:5 RTY:6 ZXC')
+    t.is(res.message, '1 FOO:2 BAR:4 QWE:5 RTY:6 XYZ')
     t.true(mwCalled)
     app.close().then(() => t.end())
   })
