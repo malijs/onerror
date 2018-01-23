@@ -1,5 +1,7 @@
 # mali-onerror
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/malijs/onerror.svg)](https://greenkeeper.io/)
+
 Mali on error middleware. Calls function with error and context.
 The called function does not have access to control flow.
 
