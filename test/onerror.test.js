@@ -99,7 +99,7 @@ test.cb('should call middleware function on error in req/res app', t => {
   const client = new helloproto.ArgService(APP_HOST, grpc.credentials.createInsecure())
   client.doSomething({ message: 'foo' }, (err, response) => {
     t.truthy(err)
-    t.is(err.message, 'boom')
+    t.true(err.message.indexOf('boom') >= 0)
     t.falsy(response)
     t.true(mwCalled)
     app.close().then(() => t.end())
