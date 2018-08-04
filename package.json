@@ -32,14 +32,15 @@
     "mali-call-types": "^0.1.0"
   },
   "devDependencies": {
-    "async": "^2.6.0",
+    "@grpc/proto-loader": "^0.3.0",
+    "async": "^2.6.1",
     "ava": "^0.25.0",
-    "greenkeeper-lockfile": "^1.13.0",
-    "grpc": "^1.8.0",
-    "highland": "^3.0.0-beta.3",
+    "greenkeeper-lockfile": "^1.15.1",
+    "grpc": "^1.13.1",
+    "highland": "^3.0.0-beta.6",
     "jsdoc-to-markdown": "^4.0.1",
-    "lodash": "^4.17.3",
-    "mali": "~0.7.0",
+    "lodash": "^4.17.10",
+    "mali": "^0.9.0",
     "standard": "^11.0.0"
   },
   "directories": {
