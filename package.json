@@ -40,7 +40,7 @@
     "highland": "^3.0.0-beta.6",
     "jsdoc-to-markdown": "^4.0.1",
     "lodash": "^4.17.10",
-    "mali": "^0.9.0",
+    "mali": "^0.10.0",
     "standard": "^11.0.0"
   },
   "directories": {
