@@ -35,7 +35,7 @@
   "devDependencies": {
     "@grpc/proto-loader": "^0.3.0",
     "async": "^2.6.1",
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "greenkeeper-lockfile": "^1.15.1",
     "grpc": "^1.16.0",
     "highland": "^3.0.0-beta.7",
