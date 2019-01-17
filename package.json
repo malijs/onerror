@@ -33,7 +33,7 @@
     "mali-call-types": "^0.1.0"
   },
   "devDependencies": {
-    "@grpc/proto-loader": "^0.3.0",
+    "@grpc/proto-loader": "^0.4.0",
     "async": "^2.6.1",
     "ava": "^0.25.0",
     "greenkeeper-lockfile": "^1.15.1",
