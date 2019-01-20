@@ -1,17 +1,16 @@
-# mali-onerror
+# @malijs/onerror
 
 Mali on error middleware. Calls function with error and context.
 The called function does not have access to control flow.
 
-[![npm version](https://img.shields.io/npm/v/mali-onerror.svg?style=flat-square)](https://www.npmjs.com/package/mali-onerror)
+[![npm version](https://img.shields.io/npm/v/@malijs/onerror.svg?style=flat-square)](https://www.npmjs.com/package/@malijs/onerror)
 [![build status](https://img.shields.io/travis/malijs/onerror/master.svg?style=flat-square)](https://travis-ci.org/malijs/onerror)
-[![Greenkeeper badge](https://badges.greenkeeper.io/malijs/onerror.svg)](https://greenkeeper.io/)
 
 ## API
 
-<a name="module_mali-onerror"></a>
+<a name="module_@malijs/onerror"></a>
 
-### mali-onerror ⇒ <code>function</code>
+### @malijs/onerror ⇒ <code>function</code>
 Mali on error middleware. Calls function with error and context. The called function does not
 have access to control flow.
 
@@ -23,7 +22,7 @@ have access to control flow.
 
 **Example**  
 ```js
-const onError = require('mali-onerror')
+const onError = require('@malijs/onerror')
 
 function errorLogger (err, ctx) {
   console.log('Error on %s: %s', ctx.name, err.toString())

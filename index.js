@@ -1,16 +1,16 @@
-const CallType = require('mali-call-types')
+const CallType = require('@malijs/call-types')
 const inject = require('error-inject')
 
 /**
  * Mali on error middleware. Calls function with error and context. The called function does not
  * have access to control flow.
- * @module mali-onerror
+ * @module @malijs/onerror
  *
  * @param  {Function} fn The function to call when an error occurs. Function has to have signature
  *                       with signature <code>(err, ctx)</code>
  * @return {Function} the middleware function
  * @example
- * const onError = require('mali-onerror')
+ * const onError = require('@malijs/onerror')
  *
  * function errorLogger (err, ctx) {
  *   console.log('Error on %s: %s', ctx.name, err.toString())

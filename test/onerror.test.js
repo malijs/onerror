@@ -65,7 +65,7 @@ test.cb('should not be called when no error in req/res app', t => {
   const helloproto = grpc.load(PROTO_PATH).argservice
   const client = new helloproto.ArgService(APP_HOST, grpc.credentials.createInsecure())
   client.doSomething({ message: 'foo' }, (err, response) => {
-    t.ifError(err)
+    t.falsy(err)
     t.truthy(response)
     t.is(response.message, 'Hello world')
     t.false(mwCalled)
@@ -273,7 +273,7 @@ test.cb('should call middleware function on error in stream in req stream app', 
   const proto = grpc.load(PROTO_PATH).argservice
   const client = new proto.ArgService(APP_HOST, grpc.credentials.createInsecure())
   const call = client.writeStuff((err, res) => {
-    t.ifError(err)
+    t.falsy(err)
     t.truthy(res)
     t.truthy(res.message)
     t.is(res.message, '1 FOO:2 BAR:4 QWE:5 RTY:6 XYZ')
