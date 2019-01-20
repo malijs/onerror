@@ -6,6 +6,4 @@ declare function onError(
 
 export = onError;
 
-
-
 declare function compose<T>(middleware: Array<compose.Middleware<T>>): compose.ComposedMiddleware<T>;
