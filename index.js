@@ -1,5 +1,5 @@
 const CallType = require('@malijs/call-types')
-const inject = require('error-inject')
+const inject = require('./inject')
 
 /**
  * Mali on error middleware. Calls function with error and context. The called function does not

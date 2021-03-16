@@ -30,8 +30,7 @@
   },
   "types": "index.d.ts",
   "dependencies": {
-    "@malijs/call-types": "^0.4.0",
-    "error-inject": "^1.0.0"
+    "@malijs/call-types": "^0.4.0"
   },
   "devDependencies": {
     "@grpc/grpc-js": "^1.2.11",
