@@ -34,13 +34,13 @@
     "error-inject": "^1.0.0"
   },
   "devDependencies": {
-    "@grpc/grpc-js": "^1.2.10",
+    "@grpc/grpc-js": "^1.2.11",
     "@grpc/proto-loader": "^0.5.6",
     "async": "^3.2.0",
     "ava": "^3.15.0",
     "greenkeeper-lockfile": "^1.15.1",
     "highland": "3.0.0-beta.7",
-    "jsdoc-to-markdown": "^4.0.1",
+    "jsdoc-to-markdown": "^7.0.0",
     "lodash": "^4.17.21",
     "mali": "^0.41.0",
     "standard": "^16.0.3"
